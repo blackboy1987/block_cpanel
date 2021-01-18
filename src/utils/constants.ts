@@ -1,3 +1,3 @@
 export const Constants = {
-  baseUrl:'http://localhost:8080/pdd/'
+  baseUrl:'http://localhost:80/block/admin/'
 }
