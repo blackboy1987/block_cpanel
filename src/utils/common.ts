@@ -9,6 +9,12 @@ export type PaginationResponse={
  }
 };
 
+export type ResponseResult={
+  code: number;
+  content: string;
+  data: any;
+};
+
 export type PaginationResult={
   data: any[];
   success: boolean;
