@@ -1,38 +1,19 @@
-import { request } from 'umi';
-import type { TableListParams, TableListItem } from './data.d';
+import request  from '@/utils/request';
+import type { TableListParams } from './data.d';
+import { Constants } from '@/utils/constants';
+import { PaginationResponse, parsePagination, ResponseResult } from '@/utils/common';
 
-export async function queryRule(params?: TableListParams) {
-  return request('/api/rule', {
-    params,
+export async function query(params?: TableListParams) {
+  return request<PaginationResponse>(`${Constants.baseUrl}member_rank/page`, {
+    method:"POST",
+    data:params,
+  }).then(res=>parsePagination(res));
+}
+
+export async function updateBitCoinMoney(params?: {[key: string]: any}) {
+  return request<ResponseResult>(`${Constants.baseUrl}member/updateBitCoinMoney`, {
+    method:"POST",
+    data:params,
   });
 }
 
-export async function removeRule(params: { key: number[] }) {
-  return request('/api/rule', {
-    method: 'POST',
-    data: {
-      ...params,
-      method: 'delete',
-    },
-  });
-}
-
-export async function addRule(params: TableListItem) {
-  return request('/api/rule', {
-    method: 'POST',
-    data: {
-      ...params,
-      method: 'post',
-    },
-  });
-}
-
-export async function updateRule(params: TableListParams) {
-  return request('/api/rule', {
-    method: 'POST',
-    data: {
-      ...params,
-      method: 'update',
-    },
-  });
-}

@@ -65,22 +65,19 @@
   },
 
   {
-    name: 'memberRank',
-    icon: 'memberRank',
+    name: '会员等级',
     path: '/memberRank',
     component: './memberRank',
   },
 
   {
-    name: 'mineMachine',
-    icon: 'mineMachine',
+    name: '矿机管理',
     path: '/mineMachine',
     component: './mineMachine',
   },
 
   {
-    name: 'mineMachineOrder',
-    icon: 'mineMachineOrder',
+    name: '订单管理',
     path: '/mineMachineOrder',
     component: './mineMachineOrder',
   },
