@@ -9,11 +9,3 @@ export async function query(params?: TableListParams) {
     data:params,
   }).then(res=>parsePagination(res));
 }
-
-export async function updateBitCoinMoney(params?: {[key: string]: any}) {
-  return request<ResponseResult>(`${Constants.baseUrl}member/updateBitCoinMoney`, {
-    method:"POST",
-    data:params,
-  });
-}
-

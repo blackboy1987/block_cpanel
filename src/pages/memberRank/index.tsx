@@ -6,7 +6,7 @@ import { PageContainer } from '@ant-design/pro-layout';
 import type { ProColumns, ActionType } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
 import type { BitCoinAccount, TableListItem } from './data.d';
-import { query,updateBitCoinMoney } from './service';
+import { query } from './service';
 import { ModalForm, ProFormDigit } from '@ant-design/pro-form';
 
 const TableList: React.FC = () => {
@@ -16,48 +16,33 @@ const TableList: React.FC = () => {
   const [bitCoinAccount,setBitCoinAccount] = useState<BitCoinAccount>({});
   const [changeBitCoinMoneyModalVisible,setChangeBitCoinMoneyModalVisible] = useState<boolean>(false);
 
-  const change = (record: BitCoinAccount,values:TableListItem)=>{
-    setChangeBitCoinMoneyModalVisible(true);
-    setValues(values);
-    setBitCoinAccount(record);
-  }
-
-
   const columns: ProColumns<TableListItem>[] = [
     {
-      title: '姓名',
+      title: '等级名称',
       dataIndex: 'name',
       width:120,
     },
     {
-      title: '用户名',
-      dataIndex: 'username',
+      title: '矿机数',
+      dataIndex: 'mineMachineCount',
     },
     {
-      title: '手机号',
-      dataIndex: 'phone',
-      width:120,
+      title: '默认',
+      dataIndex: 'isDefault',
+      width:60,
+      valueEnum:{
+        true:{
+          text: '是'
+        },
+        false:{
+          text: '否'
+        }
+      }
     },
     {
-      title: '推荐码',
-      width:80,
-      dataIndex: 'extendCode',
-    },
-    {
-      title: '实名认证',
-      dataIndex: 'isAuth',
-      width:80,
-      renderText:text=>text?"已认证":"未认证"
-    },
-    {
-      title: '操作',
-      dataIndex: 'option',
-      width:200,
-      render: (_, record) => (
-        <>
-          <a>锁定</a>
-        </>
-      )
+      title: '会员数',
+      dataIndex: 'memberCount',
+      width:60,
     },
   ];
 
@@ -67,10 +52,8 @@ const TableList: React.FC = () => {
         actionRef={actionRef}
         rowKey="id"
         size='small'
+        search={false}
         bordered
-        search={{
-          labelWidth: 120,
-        }}
         toolBarRender={() => [
           <Button
             type="primary"

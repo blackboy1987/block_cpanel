@@ -1,16 +1,19 @@
-export type TableListItem = {
-  key: number;
-  disabled?: boolean;
-  href: string;
-  avatar: string;
+export type BitCoinAccount = {
+  assetType: number;
+  createdDate: Date;
+  frozenMoney: number;
+  id: number;
+  money: number;
   name: string;
-  owner: string;
-  desc: string;
-  callNo: number;
-  status: number;
-  updatedAt: Date;
-  createdAt: Date;
-  progress: number;
+}
+
+export type TableListItem = {
+  id: number;
+  name: string;
+  mineMachineCount: number;
+  isDefault: boolean;
+  memberCount: number;
+  createdDate: Date;
 };
 
 export type TableListPagination = {

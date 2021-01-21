@@ -10,13 +10,10 @@ export type BitCoinAccount = {
 export type TableListItem = {
   id: number;
   name: string;
-  username: string;
-  phone: string;
-  extendCode: string;
-  updatedAt: Date;
+  mineMachineCount: number;
+  isDefault: boolean;
+  memberCount: number;
   createdDate: Date;
-  isAuth: boolean;
-  bitCoinAccounts: BitCoinAccount[]
 };
 
 export type TableListPagination = {
